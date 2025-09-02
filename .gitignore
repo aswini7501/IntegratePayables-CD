@@ -9,3 +9,6 @@ manifests/ip-web/*.crt
 manifests/ip-web/*.key
 manifests/ip-web/*.zip
 
+*.crt
+*.key
+*.zip
