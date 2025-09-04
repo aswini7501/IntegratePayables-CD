@@ -1,0 +1,9 @@
+# Ignore certificate and key files
+*.crt
+*.key
+*.pem
+*.zip
+
+# Ignore backup or temp files
+*~
+*.swp

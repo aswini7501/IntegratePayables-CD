@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ip-web-deployment
+  namespace: ip-web
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ip-web
+  template:
+    metadata:
+      labels:
+        app: ip-web
+    spec:
+      containers:
+      - name: ip-web-container
+        image: lvtlabs/ip:latest   # Full Docker Hub path
+        ports:
+        - containerPort: 8000
+      imagePullSecrets:
+      - name: regcred  # Docker Hub secret
+

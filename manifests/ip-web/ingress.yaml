@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ip-web-ingress
+  namespace: ip-web
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  tls:
+    - hosts:
+        - k8sip.lvtlabs.com
+      secretName: ip-web-tls
+  rules:
+    - host: k8sip.lvtlabs.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: ip-web-service
+                port:
+                  number: 80
+
